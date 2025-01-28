@@ -6,15 +6,13 @@
 /*   By: ymanav <ymanav@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:45:45 by ymanav            #+#    #+#             */
-/*   Updated: 2024/07/06 14:04:53 by ymanav           ###   ########.fr       */
+/*   Updated: 2024/11/19 12:35:10 by ymanav           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_isascii(int c)
 {
-	if (c <= 127 || c >= 0)
+	if (c <= 127 && c >= 0)
 		return (1);
 	return (0);
 }

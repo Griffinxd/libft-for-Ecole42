@@ -6,11 +6,9 @@
 /*   By: ymanav <ymanav@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:51:47 by ymanav            #+#    #+#             */
-/*   Updated: 2024/07/05 16:55:56 by ymanav           ###   ########.fr       */
+/*   Updated: 2024/11/19 14:19:18 by ymanav           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_strlen(const char *string)
 {

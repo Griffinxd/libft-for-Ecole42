@@ -6,11 +6,11 @@
 /*   By: ymanav <ymanav@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 16:59:12 by ymanav            #+#    #+#             */
-/*   Updated: 2024/07/06 14:11:05 by ymanav           ###   ########.fr       */
+/*   Updated: 2024/11/20 18:29:26 by ymanav           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 void	*ft_memset(void *source, int c, size_t n)
 {
@@ -24,5 +24,5 @@ void	*ft_memset(void *source, int c, size_t n)
 		s[i] = (unsigned char)c;
 		++i;
 	}
-	return (s);
+	return ((void *)s);
 }

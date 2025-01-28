@@ -6,11 +6,9 @@
 /*   By: ymanav <ymanav@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 02:53:28 by ymanav            #+#    #+#             */
-/*   Updated: 2024/11/13 19:36:19 by ymanav           ###   ########.fr       */
+/*   Updated: 2024/11/19 12:12:26 by ymanav           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_atoi(const char *nptr)
 {

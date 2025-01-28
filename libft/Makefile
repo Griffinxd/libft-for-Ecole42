@@ -6,7 +6,7 @@
 #    By: ymanav <ymanav@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/14 13:40:48 by ymanav            #+#    #+#              #
-#    Updated: 2024/11/17 12:25:37 by ymanav           ###   ########.fr        #
+#    Updated: 2024/11/20 19:21:28 by ymanav           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,21 +45,9 @@ SRCS = ft_isalnum.c \
 		ft_strmapi.c \
 		ft_striteri.c
 
-BONUS_SRCS = ft_lstnew.c \
-			ft_lstadd_front.c \
-			ft_lstsize.c \
-			ft_lstlast.c \
-			ft_lstadd_back.c \
-			ft_lstdelone.c \
-			ft_lstclear.c \
-			ft_lstiter.c \
-			ft_lstmap.c
-
 OBJS = $(SRCS:.c=.o)
 
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
-
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Werror -Wextra
 
@@ -72,15 +60,12 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-bonus: $(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
-
-clean:
-	$(RM) $(OBJS) $(BONUS_OBJS)
+clean: 
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean all
+re : fclean all	
 
 .PHONY: clean re fclean all

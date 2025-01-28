@@ -6,76 +6,82 @@
 /*   By: ymanav <ymanav@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 22:26:21 by ymanav            #+#    #+#             */
-/*   Updated: 2024/11/13 19:43:07 by ymanav           ###   ########.fr       */
+/*   Updated: 2024/11/19 12:38:13 by ymanav           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-static int	splitcount(const char *s, char c)
+static char	**get_free(char **array, size_t i)
 {
-	int	count;
-	int	i;
-
-	i = 0;
-	count = 0;
-	while (s[i])
-	{
-		if (s[i] != c && (s[i + 1] != '\0' && s[i + 1] == c))
-			count++;
-		i++;
-	}
-	return (count);
+	while (array[i] != NULL)
+		free(array[i++]);
+	free(array);
+	return (NULL);
 }
 
-static int	splitlen(const char *s, char c)
+static int	word_count(const char *s, char c)
 {
 	int	i;
 
 	i = 0;
-	while (s[i] && s[i] != c)
-		++i;
+	while (*s != '\0')
+	{
+		while (*s == c && *s != '\0')
+			s++;
+		if (*s != c && *s != '\0')
+			i++;
+		while (*s != c && *s != '\0')
+			s++;
+	}
 	return (i);
 }
 
-static char	*splitstr(const char *s, char c)
+static char	*get_mem(const char *s, char c)
 {
+	char	*arr;
 	int		i;
-	char	*str;
+	int		j;
 
-	str = (char *)malloc(sizeof(char) * splitlen(s, c) + 1);
 	i = 0;
-	while (s[i] != c && s[i])
+	j = 0;
+	while (s[i] != c && s[i] != '\0')
+		i++;
+	arr = (char *)malloc(i + 1);
+	if (arr == NULL)
+		return (NULL);
+	while (j < i)
 	{
-		str[i] = s[i];
-		++i;
+		arr[j] = s[j];
+		j++;
 	}
-	str[i] = '\0';
-	return (str);
+	arr[j] = '\0';
+	return (arr);
 }
 
 char	**ft_split(const char *s, char c)
 {
-	char	**strarr;
-	int		strcount;
-	int		i;
+	char	**array;
 	int		j;
 
-	strcount = splitcount(s, c);
-	strarr = (char **)malloc(sizeof(char *) * strcount + 1);
-	if (!strarr)
-		return (0);
-	i = 0;
 	j = 0;
-	while (i < strcount)
+	array = (char **)malloc((word_count(s, c) + 1) * sizeof(char *));
+	if (array == NULL)
+		return (NULL);
+	while (*s != '\0')
 	{
-		while (s[j] == c)
+		while (*s == c && *s != '\0')
+			s++;
+		if (*s != c && *s != '\0')
+		{
+			array[j] = get_mem(s, c);
+			if (array[j] == NULL)
+				return (get_free(array, 0));
 			j++;
-		strarr[i] = splitstr(s + j, c);
-		while (s[j] != c && s[j] != '\0')
-			++j;
-		++i;
+		}
+		while (*s != c && *s != '\0')
+			s++;
 	}
-	strarr[i] = '\0';
-	return (strarr);
+	array[j] = NULL;
+	return (array);
 }

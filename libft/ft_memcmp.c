@@ -6,11 +6,11 @@
 /*   By: ymanav <ymanav@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 02:53:31 by ymanav            #+#    #+#             */
-/*   Updated: 2024/07/15 13:34:16 by ymanav           ###   ########.fr       */
+/*   Updated: 2024/11/20 18:28:26 by ymanav           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

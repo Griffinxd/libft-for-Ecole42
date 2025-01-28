@@ -6,7 +6,7 @@
 /*   By: ymanav <ymanav@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 13:21:11 by ymanav            #+#    #+#             */
-/*   Updated: 2024/11/13 19:42:00 by ymanav           ###   ########.fr       */
+/*   Updated: 2024/11/19 17:39:53 by ymanav           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char	*cdest;
-	char	*csrc;
-	char	*temp;
+	unsigned char	*cdest;
+	unsigned char	*csrc;
 
-	if (dest == NULL || src == NULL)
-		return (NULL);
-	cdest = (char *)dest;
-	csrc = (char *)src;
-	temp = (char *)malloc(n);
-	if (!temp)
-		return (NULL);
-	ft_memcpy(temp, csrc, n);
-	ft_memcpy(cdest, temp, n);
-	free(temp);
-	return (cdest);
+	cdest = (unsigned char *)dest;
+	csrc = (unsigned char *)src;
+	if (csrc < cdest)
+	{
+		while (n-- > 0)
+			cdest[n] = csrc[n];
+		return (dest);
+	}
+	else
+		return (ft_memcpy(dest, src, n));
+	return (dest);
 }
